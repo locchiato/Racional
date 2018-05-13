@@ -45,7 +45,7 @@ public class Racional {
 			denominador *= 10;
 			convertirRecursivo();
 		}
-		numerador *= denominador;	
+		numerador = (int) numero;	
 		numero /= denominador;
 	}	
 }
