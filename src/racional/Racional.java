@@ -27,12 +27,11 @@ public class Racional {
 	public void convertirIterativo() {
 		int i = 0;
 		double aux = numero;
-		if(numerador % 1 != 0)
-			while(aux % 1 != 0)
-			{
-				aux *= 10;
-				i++;
-			}
+		while(aux % 1 != 0)
+		{
+			aux *= 10;
+			i++;
+		}
 		numerador = (int) aux;
 		denominador = (int) Math.pow(10, i);
 	}
