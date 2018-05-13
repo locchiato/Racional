@@ -34,7 +34,31 @@ public class Racional {
 	}
 
 	public void simplificarIterativo() {
-		// TODO Auto-generated method stub
+		int aden = denominador, anum = numerador;
+		int i=0, resto = aden;
+		while(resto != 0)
+		{
+			if(i%2 == 0)
+			{
+				anum %= resto;
+				resto = anum;
+			}
+			else
+			{
+				aden %= resto;
+				resto = aden;
+			}
+			i++;
+		}
+		int cmd;
+		
+		if(aden == 0)
+			cmd = anum;
+		else
+			cmd = aden;
+			
+		numerador /= cmd;
+		denominador /= cmd;
 		
 	}
 
