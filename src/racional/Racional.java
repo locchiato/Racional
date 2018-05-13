@@ -4,7 +4,7 @@ public class Racional {
 	
 	double numero;
 	int numerador;
-	int denominador;
+	int denominador  = 1;
 
 	public Racional(final double numero)
 	{
@@ -22,18 +22,15 @@ public class Racional {
 	private int MCDRecursivo(int a, int b) {
 		return b == 0 ? a : MCDRecursivo(b, a % b);
 	}
-	
 
 	public void convertirIterativo() {
-		int i = 0;
-		double aux = numero;
-		while(aux % 1 != 0)
+		while(numero % 1 != 0)
 		{
-			aux *= 10;
-			i++;
+			numero *= 10;
+			denominador *= 10;
 		}
-		numerador = (int) aux;
-		denominador = (int) Math.pow(10, i);
+		numerador = (int) numero;	
+		numero /= denominador;
 	}
 
 	public void simplificarIterativo() {
@@ -42,7 +39,13 @@ public class Racional {
 	}
 
 	public void convertirRecursivo() {
-		// TODO Auto-generated method stub
-		
+		if(numero % 1 != 0)
+		{
+			numero *= 10;
+			denominador *= 10;
+			convertirRecursivo();
+		}
+		numerador *= denominador;	
+		numero /= denominador;
 	}	
 }
